@@ -1,4 +1,4 @@
-/* Reset e básico */
+/* --- Reset e básico --- */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #2f2f2f;
+  background-color: #161616;
   color: #ddd;
   line-height: 1.6;
   min-height: 100vh;
@@ -16,18 +16,17 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Container global */
+/* --- Container global --- */
 .container {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Navbar */
+/* --- Navbar --- */
 .navbar {
   background-color: #444;
   padding: 0.5rem 1rem;
-  color: #ddd;
   position: sticky;
   top: 1rem;
   z-index: 1000;
@@ -45,36 +44,25 @@ body {
   padding: 0;
 }
 
-/* Links com ícones */
-.nav-links a {
-  display: inline-block;
+.nav-links a,
+.icon {
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
-.nav-links a:hover {
-  filter: invert(26%) sepia(95%) saturate(462%) hue-rotate(185deg) brightness(95%) contrast(92%);
-  transform: scale(1.1);
+.nav-links a:hover,
+.icon:hover {
+  color: rgb(255, 165, 0);
+  transform: scale(1.15);
 }
 
-
-/* Definir os ícones */
-.nav-links a.home {
-  background-image: url('../assets/icons/Home.png');
-}
-
-.nav-links a.about {
-  background-image: url('../assets/icons/Work.png');
-}
-
-.nav-links a.contact {
-  background-image: url('../assets/icons/Contact.png');
-}
-
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
   padding: 6rem 0;
   text-align: center;
@@ -91,7 +79,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Botões */
+/* --- Botões --- */
 .btn {
   background-color: transparent;
   color: #ddd;
@@ -109,45 +97,49 @@ body {
   border-color: rgb(255, 165, 0);
 }
 
-/* Footer */
+/* --- Footer --- */
 .footer {
-  background-color: #222;
+  background-color: rgba(0, 0, 0, 0);
   color: #bbb;
-  padding: 2rem 0;
+  margin: 30%;
   margin-top: auto;
 }
 
-.footer .footer-content {
+.footer .container.footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
-.footer p {
+.footer .copyright {
   font-size: 0.95rem;
+  color: rgb(200, 200, 200);
 }
 
-.social-links a {
-  margin-left: 1rem;
-  display: inline-block;
+.footer-icons {
+  display: flex;
+  gap: 1rem;
 }
 
-.social-links img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: brightness(1.2) grayscale(1);
-  border-radius: 5px;
-  transition: transform 0.3s ease;
+.footer-icons .icon {
+  color: rgb(200, 200, 200);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
-.social-links img:hover {
-  transform: scale(1.1);
-  filter: invert(26%) sepia(95%) saturate(462%) hue-rotate(185deg) brightness(95%) contrast(92%);
+.footer-icons .icon:hover {
+  color: rgb(255, 165, 0);
+  transform: scale(1.15);
 }
 
-/* Animações com AOS */
+/* --- Animações com AOS --- */
 [data-aos] {
   opacity: 0;
   transition-property: opacity, transform;
@@ -164,7 +156,7 @@ body {
   transform: translateY(20px);
 }
 
-/* Responsividade */
+/* --- Responsividade --- */
 @media (max-width: 768px) {
   .navbar .container {
     gap: 1.5rem;
@@ -176,5 +168,15 @@ body {
 
   .hero p {
     font-size: 1.1rem;
+  }
+
+  .footer .container.footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-icons {
+    justify-content: center;
   }
 }
